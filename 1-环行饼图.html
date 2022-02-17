@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div1 {
+      width: 400px;
+      height: 400px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <!-- path之后的参数M 指定绘画的起点 为x和y坐标 -->
+  <!-- 参数L 指定为绘制线段 后面也是跟俩参数为要到达的x和y坐标 -->
+  <!-- fill 填充色 指定区域内填充的颜色 设置为none为不填色 -->
+  <!-- 参数H 水平线段 参数后一个为x坐标 -->
+  <!-- 参数v 垂直线段 参数后一个为y坐标 -->
+  <!-- z表示前边画的图形的闭合，测试大小写均可 -->
+  <!-- 设置完此两个参数后 还需通过stroke来设置线段样式线段才会在画布中显示 -->
+  <!-- path参数中的大小写 大写为绝对坐标 小写为相对坐标 -->
+  <!-- 大写为画布中点的实际坐标，小写为相对于起始点的x和y坐标的差值，实际为长度 -->
+
+
+  <!-- A命令 a命令用于绘制弧形 接收7个参数 -->
+  <!-- 
+    x半径
+    y半径
+    角度
+    弧长
+      0 小弧
+      1 大弧
+    方向
+      0 逆时针
+      1 顺时针
+    终点x坐标
+    终点y坐标
+   -->
+  <div id="div1">
+    <svg id="svg1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <!-- 任意线段绘制 -->
+      <!-- <path d="M50 100L200 200L100 100Z" stroke="black" stroke-width="2" fill="none"></path> -->
+      <!-- 绘制水平垂直线段 -->
+      <!-- <path d="M50 100H 200V 200" stroke="black" stroke-width="2" fill="none"></path> -->
+      <!-- path中的大小写区别 -->
+      <!-- <path d="M50 100h 200v 200" stroke="black" stroke-width="2" fill="none"></path> -->
+      <!-- path绘制圆弧共计7个参数 -->
+      <!-- <path d="M100 100A100 150 10 1 1 200 200" stroke="black" stroke-width="2" fill="none"></path> -->
+      <!-- 扇形绘制 -->
+      <path d="M150 150A150 150 0 0 1 250 150L225 175A50 50 0 0 0 175 175Z" stroke="black" stroke-width="2" fill="pink"></path>
+    </svg>
+  </div>
+</body>
+</html>
