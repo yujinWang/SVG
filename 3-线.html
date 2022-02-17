@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 创建一个绘图区域
+    var can = document.getElementById('canvas')
+    can.width = 600
+    can.height = 600
+
+    // 一支笔
+    var ctx = can.getContext('2d')
+
+    // 将画笔移动的位置，起始位置和结束位置
+    ctx.moveTo(100,100)
+    ctx.lineTo(300,300)
+    
+    // 线宽、颜色设置-颜色、线宽需要在stroke之前，否则不生效
+    ctx.strokeStyle = 'red'
+    ctx.lineWidth = '10'
+
+    // 描边-经过上述步骤后只是有轨迹，并没有颜色-stroke默认描边颜色为黑色
+    ctx.stroke()
+
+  </script>
+</body>
+</html>
