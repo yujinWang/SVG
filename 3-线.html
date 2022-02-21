@@ -22,15 +22,32 @@
     // 一支笔
     var ctx = can.getContext('2d')
 
-    // 将画笔移动的位置，起始位置和结束位置
-    ctx.moveTo(100,100)
-    ctx.lineTo(300,300)
+    // // 将画笔移动的位置，起始位置和结束位置
+    // ctx.moveTo(100,100)
+    // ctx.lineTo(300,300)
     
-    // 线宽、颜色设置-颜色、线宽需要在stroke之前，否则不生效
-    ctx.strokeStyle = 'red'
-    ctx.lineWidth = '10'
+    // // 线宽、颜色设置-颜色、线宽需要在stroke之前，否则不生效
+    // ctx.strokeStyle = 'red'
+    // ctx.lineWidth = '10'
 
-    // 描边-经过上述步骤后只是有轨迹，并没有颜色-stroke默认描边颜色为黑色
+    // // 描边-经过上述步骤后只是有轨迹，并没有颜色-stroke默认描边颜色为黑色
+    // ctx.stroke()
+
+    // arc方法参数 180度为1弧度 画一个带缺角的圆
+    // x 圆心x坐标
+    // y 圆心y坐标
+    // r 圆的半径
+    // sAngle 起始角度 弧的圆形的三点钟位置是0度
+    // eAngle 结束角度 以弧度计-起始角度同
+    // xxx 顺时针还是逆时针 false-顺时针 true-逆时针
+    ctx.arc(300,300,100,0,Math.PI*1.5,false)
+    ctx.lineTo(300,300) // 1
+    ctx.lineTo(400,300) // 2 若无1、2步的话将会从初始到结束连接起来，并不是缺角的样式
+    ctx.fillStyle = 'red'
+    ctx.fill()
+
+    ctx.strokeStyle = 'blue' // 添加一圈黑色的描边 描边宽度为5
+    ctx.lineWidth = '5'
     ctx.stroke()
 
   </script>
