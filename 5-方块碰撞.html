@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+<script>
+  var can = document.getElementById('canvas')
+  var ctx = can.getContext('2d')
+  can.width = 600
+  can.height = 400
+
+  ctx.fillStyle = 'red' // 颜色设置位于fillRect上边
+  // ctx.fillRect(250,0,100,100)
+
+  // 清除一个区域 clearRect 四个参数为坐标及xy轴长度
+  // ctx.clearRect(250,50,50,50)
+
+  var x = 0
+  var y = 0
+  var flagX = true
+  var flagY = true
+  setInterval(() => {
+    ctx.clearRect(x,y,50,50) // 下落过程中清除之前生成的-若设置为比50小的值的话将会有拖尾---
+    
+    if(flagX) { // 向右移动
+      x++
+      if(x >= 550) {
+        flagX = false
+      }
+    }else {
+      x--
+      if(x <= 0) {
+        flagX = true
+      }
+    }
+
+    if(flagY) {
+      y++
+      if(y >= 350) {
+        flagY = false
+      }
+    }else {
+      y--
+      if(y <= 0) {
+        flagY = true
+      }
+    }
+
+    // if(x >= 550) {
+    //   console.log('x > 550');
+    //   x--
+    // }
+    // if(x <= 0) {
+    //   console.log('x >= 0');
+    //   x++
+    // }
+    // if(y >= 350) {
+    //   console.log('y > 350');
+    //   y--
+    // }
+    // if(y <= 0) {
+    //   console.log('y >= 0');
+    //   y++
+    // }
+    ctx.fillRect(x,y,50,50)
+  },10)
+</script>
+</html>

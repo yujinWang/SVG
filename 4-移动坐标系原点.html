@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 创建一个绘图区域
+    var can = document.getElementById('canvas')
+    can.width = 600
+    can.height = 600
+
+    // 一支笔
+    var ctx = can.getContext('2d')
+
+    // 通过translate属性移动坐标系原点(将圆心移动到(300,300))，接收参数x,y
+    ctx.translate(300,300)
+    // 此时画圆时候设置圆心坐标为(0,0)即可
+    let r = 100
+    ctx.arc(0,0,r,0,Math.PI*2,false)
+    ctx.strokeStyle = 'red'
+    ctx.stroke()
+
+    // 度和弧度转换 Math.PI/180*x x指角度值
+    let regX1 = Math.PI/180 * 270
+    let x1 = Math.cos(regX1) * r
+    let y1 = Math.sin(regX1) * r
+
+    let regX2 = Math.PI/180 * 150
+    let x2 = Math.cos(regX2) * r
+    let y2 = Math.sin(regX2) * r
+
+    let regX3 = Math.PI/180 * 30
+    let x3 = Math.cos(regX3) * r
+    let y3 = Math.sin(regX3) * r
+
+    ctx.moveTo(0,0)
+    ctx.lineTo(x1,y1)
+    ctx.stroke()
+
+    ctx.moveTo(0,0)
+    ctx.lineTo(x2,y2)
+    ctx.stroke()
+
+    ctx.moveTo(0,0)
+    ctx.lineTo(x3,y3)
+    ctx.stroke()
+
+  </script>
+</body>
+</html>
