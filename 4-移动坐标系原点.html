@@ -43,17 +43,26 @@
     let x3 = Math.cos(regX3) * r
     let y3 = Math.sin(regX3) * r
 
+    ctx.beginPath()
     ctx.moveTo(0,0)
     ctx.lineTo(x1,y1)
+    ctx.strokeStyle = 'yellow'
     ctx.stroke()
+    ctx.closePath()
 
+    ctx.beginPath()
     ctx.moveTo(0,0)
     ctx.lineTo(x2,y2)
+    ctx.strokeStyle = 'pink'
     ctx.stroke()
+    ctx.closePath()
 
+    ctx.beginPath()
     ctx.moveTo(0,0)
     ctx.lineTo(x3,y3)
+    ctx.strokeStyle = 'blue'
     ctx.stroke()
+    ctx.closePath()
 
   </script>
 </body>
