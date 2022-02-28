@@ -12,9 +12,15 @@
   </style>
 </head>
 <body>
+  <!-- <button onclick="btnClick1()">暂停</button>
+  <button onclick="btnClick2()">开始</button> -->
+  <button id="btn1">暂停</button>
+  <button id="btn2">开始</button>
   <canvas id="canvas"></canvas>
 </body>
 <script>
+  var oBtn1 = document.getElementById('btn1')
+  var oBtn2 = document.getElementById('btn2')
   var can = document.getElementById('canvas')
   var ctx = can.getContext('2d')
   can.width = 600
@@ -28,7 +34,7 @@
   ctx.beginPath()
   ctx.arc(0,0,r,0,Math.PI*2,false)
   ctx.strokeStyle = '#000000'
-  ctx.lineWidth = 5
+  ctx.lineWidth = 6
   ctx.stroke()
   // closePath-结束一段路径
   ctx.closePath()
@@ -39,22 +45,139 @@
   ctx.fill()
   ctx.closePath()
 
+  // 刻度绘制
   for(var i=0;i<60;i++) {
     if(i%5 == 0) {
       ctx.beginPath()
-      ctx.moveTo(Math.cos(Math.PI/180*i*6)*200,Math.sin(Math.PI/180*i*6)*200)
+      ctx.moveTo(Math.cos(Math.PI/180*i*6)*197,Math.sin(Math.PI/180*i*6)*197)
       ctx.lineTo(Math.cos(Math.PI/180*i*6)*170, Math.sin(Math.PI/180*i*6)*170)
       ctx.strokeStyle = 'red'
       ctx.stroke()
       ctx.closePath()
     }else{
       ctx.beginPath()
-      ctx.moveTo(Math.cos(Math.PI/180*i*6)*200,Math.sin(Math.PI/180*i*6)*200)
+      ctx.moveTo(Math.cos(Math.PI/180*i*6)*197,Math.sin(Math.PI/180*i*6)*197)
       ctx.lineTo(Math.cos(Math.PI/180*i*6)*185, Math.sin(Math.PI/180*i*6)*185)
       ctx.strokeStyle = 'black'
       ctx.stroke()
       ctx.closePath()
     }
+  }
+
+
+
+  // 时针、分针、秒针绘制
+  ctx.beginPath()
+  ctx.moveTo(0,15)
+  ctx.lineTo(0,-100)
+  ctx.strokeStyle = 'black'
+  ctx.stroke()
+  ctx.closePath()
+
+  ctx.beginPath()
+  ctx.moveTo(0,20)
+  ctx.lineTo(0,-125)
+  ctx.strokeStyle = 'blue'
+  ctx.lineWidth = 3
+  ctx.stroke()
+  ctx.closePath()
+
+  ctx.beginPath()
+  ctx.moveTo(0,25)
+  ctx.lineTo(0,-150)
+  ctx.strokeStyle = 'red'
+  ctx.lineWidth = 1
+  ctx.stroke()
+  ctx.closePath()
+
+  ctx.beginPath()
+  ctx.moveTo(0,25)
+  ctx.lineTo(0,-150)
+  ctx.strokeStyle = 'red'
+  ctx.lineWidth = 1
+  ctx.stroke()
+  ctx.closePath()
+
+  // ctx.beginPath()
+  // ctx.rotate(Math.PI/180*30)
+  // ctx.fillStyle = 'blue'
+  // ctx.fillRect(-10,-2.5,100,5)
+  // ctx.closePath()
+
+  // ctx.beginPath()
+  // ctx.rotate(Math.PI/180*60)
+  // ctx.fillStyle = 'blue'
+  // ctx.fillRect(-10,-2.5,100,5)
+  // ctx.closePath()
+
+  
+  var timer = setInterval(toTime,1000)
+  // 除通过once外，还可以通过 removeEventListener 方法让事件只触发一次
+  oBtn1.addEventListener('click',function(){
+    clearInterval(timer)
+  },{once: true})
+
+  oBtn2.addEventListener('click',function(){
+    timer = setInterval(toTime,1000)
+  },{once: true})
+
+  // ctx.beginPath()
+  // ctx.rotate(Math.PI/180*1)
+  // ctx.fillStyle = 'red'
+  // ctx.fillRect(-10,-1,180,1)
+  // ctx.closePath()
+
+  // ctx.beginPath()
+  // ctx.rotate(Math.PI/180*30/6)
+  // ctx.fillStyle = 'red'
+  // ctx.fillRect(0,0,180,1)
+  // ctx.closePath()
+
+  // ctx.beginPath()
+  // ctx.rotate(Math.PI/180*31/6)
+  // ctx.fillStyle = 'red'
+  // ctx.fillRect(0,0,180,1)
+  // ctx.closePath()
+  
+  // ctx.beginPath()
+  // ctx.rotate(Math.PI/180*32/6)
+  // ctx.fillStyle = 'red'
+  // ctx.fillRect(0,-1,180,1)
+  // ctx.closePath()
+
+  // function btnClick1() {
+  //   console.log('暂停')
+  //   clearInterval(timer)
+  // }
+  // function btnClick2() {
+  //   console.log('开始')
+  //   timer = setInterval(toTime,1000)
+  // }
+
+  
+  // 获取当前时间
+  var oSec = ''
+  var oMin = ''
+  var oHour = ''
+  function toTime() {
+    var oData = new Date(); //获取当前时间
+    var iSec = oData.getSeconds();       //注意下这三个变量的顺序  由于后面的分钟和小时都是要用前面的累加  所以是按秒--分钟--小时来排列的
+    var iMin = oData.getMinutes() + iSec / 60;
+    var iHour = oData.getHours() + iMin / 60;
+
+    console.log('iSec', iSec);
+
+    // ctx.beginPath()
+    // ctx.clearRect(0,0,600,600)
+    ctx.rotate(Math.PI/180*6)
+    ctx.fillStyle = 'red'
+    ctx.fillRect(-10,0,180,1)
+    // ctx.closePath()
+
+    // oSec.style.webkitTransform = 'rotate(' + iSec * 6 + 'deg)'; //rotate旋转角度 秒针 每一秒6°
+    // oMin.style.webkitTransform = 'rotate(' + iMin * 6 + 'deg)'; 
+    // oHour.style.webkitTransform = 'rotate(' + iHour * 30 + 'deg)'; //时针每一小时30°
+
   }
 
   // ctx.beginPath()
