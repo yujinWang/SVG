@@ -168,10 +168,12 @@
     console.log('iSec', iSec);
 
     // ctx.beginPath()
-    // ctx.clearRect(0,0,600,600)
+    // ctx.clearRect(10,0,180,3)
+    // ctx.save()
     ctx.rotate(Math.PI/180*6)
     ctx.fillStyle = 'red'
-    ctx.fillRect(-10,0,180,1)
+    ctx.fillRect(0,0,180,1)
+    ctx.restore()
     // ctx.closePath()
 
     // oSec.style.webkitTransform = 'rotate(' + iSec * 6 + 'deg)'; //rotate旋转角度 秒针 每一秒6°

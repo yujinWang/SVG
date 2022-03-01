@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 创建一个绘图区域
+    var can = document.getElementById('canvas')
+    var ctx = can.getContext('2d')
+    can.width = 600
+    can.height = 600
+
+    // ctx.moveTo(100,100)
+    // ctx.lineTo(200,200)
+    // ctx.lineWidth=10
+    // ctx.strokeStyle='red'
+    // ctx.stroke()
+
+    // // beginPath-新起一个路径，否则后边的样式会覆盖前面的样式-一般的做法是新绘制时候执行beginPath方法，防止代码量多之后排查问题困难
+    // ctx.beginPath()
+    // ctx.moveTo(200,200)
+    // ctx.lineTo(300,100)
+    // ctx.strokeStyle='blue'
+    // ctx.lineWidth=2
+    // ctx.stroke()
+
+    // 坐标系旋转后里边的图形也跟着会旋转
+    var deg = Math.PI/180*30
+    ctx.save() // 保存以前的坐标系
+    ctx.rotate(deg)
+    ctx.moveTo(100,100)
+    ctx.lineTo(200,100)
+    ctx.strokeStyle='red'
+    ctx.stroke()
+    ctx.restore() // 恢复旋转之前的坐标系-既save的那个坐标系
+
+  </script>
+</body>
+</html>
