@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [
+      { name: '张三1',value:'1',parentId: '11' },
+      { name: '张三2',value:'2',parentId: '11' },
+      { name: '张三3',value:'3',parentId: '11' },
+      { name: '张三4',value:'4',parentId: '12' },
+      { name: '张三5',value:'5',parentId: '12' },
+      { name: '张三6',value:'6',parentId: '12' },
+      { name: '张三7',value:'7',parentId: '12' },
+      { name: '张三8',value:'8',parentId: '12' },
+      { name: '张三9',value:'9',parentId: '13' },
+      { name: '张三10',value:'10',parentId: '13' },
+      { name: '张三11',value:'11',parentId: '14' },
+      { name: '张三12',value:'12',parentId: '15' },
+      { name: '张三13',value:'13',parentId: '16' },
+      { name: '张三14',value:'14',parentId: '16' },
+      { name: '张三15',value:'15',parentId: '16' }
+    ]
+    var arr4 = [
+      {
+        label: '张三1',
+        value: '1',
+        children: [
+          {
+            label: '张三2',
+            value: '2'
+          }
+        ]
+      },
+      {
+        label: '王五',
+        value: '333'
+      }
+    ]
+    let tempArr = []
+    let newArr = []
+    function recursion(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        tempArr.push(arr[i].parentId);
+        console.log('arr[i].parentId', arr[i].parentId)
+        // if (tempArr.indexOf(arr[i].parentId) != -1) {
+        //   newArr.push({
+        //     parentId: arr[i].parentId,
+        //     children: [{label:arr[i]['name'],value:arr[i]['id']}]
+        //   })
+        // } else {
+        //   // for (let j = 0; j < newArr.length; j++) {
+        //   //   if (newArr[j].parentId == arr[i].parentId) {
+        //   //     Object.assign({}, newArr[j], {label:arr[i]['name'],value:arr[i]['id']})
+        //   //     // newArr[j].push({label:arr[i]['name'],value:arr[i]['id']})
+        //   //   }
+        //   // }
+        // }
+      }
+    }
+    recursion(arr)
+    console.log('tempArr', tempArr);
+    console.log('newArr', newArr);
+  </script>
+</body>
+</html>

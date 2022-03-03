@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 找到数组arr2在arr1中的位置，然后对arr1中此位置的数据做某些操作
+    let arr1 = [100,101,102,103,104,105,106,107,108,109,110]
+    let arr2 = [103,107,109]
+    let arr3 = [
+      {name: '张三1',age: 100},
+      {name: '张三2',age: 101},
+      {name: '张三3',age: 102},
+      {name: '张三4',age: 103},
+      {name: '张三5',age: 104},
+      {name: '张三6',age: 105},
+      {name: '张三7',age: 106},
+      {name: '张三8',age: 107},
+      {name: '张三9',age: 108},
+      {name: '张三10',age: 109}
+    ]
+    // arr1.forEach((r,i) => {
+    //   arr2.forEach(j => {
+    //     if(r == j) {
+    //       arr1[i] = 1000
+    //     }
+    //   })
+    // })
+    // console.log('arr1', arr1);
+
+    arr3.map((r,i) => {
+      arr2.map(j => {
+        if(j == r.age) {
+          Object.assign( r, { checked: false })
+        }
+      })
+    })
+    console.log('arr3', arr3);
+
+    // let res = arr3.filter(r => {
+    //   return r.age > 105
+    // })
+    // console.log('res', res);
+
+  </script>
+</body>
+</html>
