@@ -8,29 +8,50 @@
 </head>
 <body>
   <script>
-    var arr = [
-      { name: '张三1', age: 20 },
-      { name: '张三2', age: 30 },
-      { name: '张三3', age: 40 },
-      { name: '张三4', age: 50 },
-      { name: '张三5', age: 60 },
-      { name: '张三6', age: 70 }
-    ]
-    function loop() {
-      var count = 0
-      for(let i=0;i<arr.length;i++) {
-        (function(i) {
-          setTimeout(() => {
-            count++
-            console.log(arr[i]['name'])
-            if(count == arr.length) {
-              loop()
-            }
-          },(i+1)*1000)
-        })(i)
+    // var arr = [
+    //   { name: '张三1', age: 20 },
+    //   { name: '张三2', age: 30 },
+    //   { name: '张三3', age: 40 },
+    //   { name: '张三4', age: 50 },
+    //   { name: '张三5', age: 60 },
+    //   { name: '张三6', age: 70 }
+    // ]
+    // function loop() {
+    //   var count = 0
+    //   for(let i=0;i<arr.length;i++) {
+    //     (function(i) {
+    //       setTimeout(() => {
+    //         count++
+    //         console.log(arr[i]['name'])
+    //         if(count == arr.length) {
+    //           loop()
+    //         }
+    //       },(i+1)*1000)
+    //     })(i)
+    //   }
+    // }
+    // loop()
+
+    var  arr = [{
+    name:'张三1',age:20
+    },{
+    name:'张三2',age:30
+    },{
+    name:'张三3',age:40
+    },{
+    name:'张三4',age:50
+    },{
+    name:'张三5',age:60 
+    }]
+    var count = 0
+    var Timer =  setInterval(()=>{
+      if(count === arr.length){
+        count =0
       }
-    }
-    loop()
+      console.log(`${arr[count].name}-${arr[count].age}`)
+      count ++
+    },1000)
+
   </script>
 </body>
 </html>
