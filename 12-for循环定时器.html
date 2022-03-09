@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [
+      { name: '张三1', age: 20 },
+      { name: '张三2', age: 30 },
+      { name: '张三3', age: 40 },
+      { name: '张三4', age: 50 },
+      { name: '张三5', age: 60 },
+      { name: '张三6', age: 70 }
+    ]
+    function loop() {
+      var count = 0
+      for(let i=0;i<arr.length;i++) {
+        (function(i) {
+          setTimeout(() => {
+            count++
+            console.log(arr[i]['name'])
+            if(count == arr.length) {
+              loop()
+            }
+          },(i+1)*1000)
+        })(i)
+      }
+    }
+    loop()
+  </script>
+</body>
+</html>
